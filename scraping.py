@@ -21,12 +21,12 @@ def scrape_all():
     }
     browser.quit()
     return data
-executable_path = {'executable_path': ChromeDriverManager().install()}
-browser = Browser('chrome', **executable_path, headless=False)
+#executable_path = {'executable_path': ChromeDriverManager().install()}
+#browser = Browser('chrome', **executable_path, headless=False)
 
 def mars_news(browser):
     # Visit the mars nasa news site
-    url = 'https://redplanetscience.com'
+    url = 'https://redplanetscience.com/'
     browser.visit(url)
     # Optional delay for loading the page
     browser.is_element_present_by_css('div.list_text', wait_time=1)
