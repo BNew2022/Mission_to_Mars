@@ -70,7 +70,7 @@ def featured_image(browser):
     except AttributeError:
         return None
     # USe the base URL to create an absolute URL
-    img_url = f'https://space-images-mars.com/{img_url_rel}'
+    img_url = f'https://spaceimages-mars.com/{img_url_rel}'
     return img_url
 
 def mars_facts():
@@ -82,7 +82,7 @@ def mars_facts():
     df.set_index('Description', inplace=True)
     
     # Convert dataframe into HTML format, add bootstrap
-    return df.to_html()
+    return df.to_html(classes = "table table-striped")
 
 if __name__ == "__main__":
 
