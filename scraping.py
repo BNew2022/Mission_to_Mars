@@ -96,6 +96,7 @@ def hemispheres(browser):
     # 3. Write code to retrieve the image urls and titles for each hemisphere.
     # First, get a list of all of the hemispheres
     links = browser.find_by_css('a.product-item img')
+    print(len(links))
     # Next, loop through those links, click the link, find the sample anchor, return the href
     for i in range(len(links)):
         hemisphere = {}
@@ -104,7 +105,9 @@ def hemispheres(browser):
         browser.find_by_css('a.product-item img')[i].click()
 
         # Next, we find the Sample image anchor tag and extract the href
-        sample_elem = browser.links.find_by_text('Sample').first
+        # sample_elem = browser.links.find_by_text('Sample').first
+        
+        sample_elem = browser.links.find_by_text('Sample')
         hemisphere['img_url'] = sample_elem['href']
 
         # Get Hemisphere title
