@@ -95,11 +95,13 @@ def hemispheres(browser):
     hemisphere_image_urls = []
     # 3. Write code to retrieve the image urls and titles for each hemisphere.
     # First, get a list of all of the hemispheres
+    browser.is_element_present_by_css('a.product-item img', wait_time=5)
     links = browser.find_by_css('a.product-item img')
     print(len(links))
     # Next, loop through those links, click the link, find the sample anchor, return the href
     for i in range(len(links)):
         hemisphere = {}
+        browser.is_element_present_by_css('a.product-item img', wait_time=5)
 
         # We have to find the elements on each loop to avoid a stale element exception
         browser.find_by_css('a.product-item img')[i].click()
@@ -115,6 +117,7 @@ def hemispheres(browser):
 
         # Append hemisphere object to list
         hemisphere_image_urls.append(hemisphere)
+        browser.back()
         # print(f'this is what we are looking for: {hemisphere_image_urls}')
     return hemisphere_image_urls
 
